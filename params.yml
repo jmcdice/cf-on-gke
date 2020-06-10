@@ -1,0 +1,9 @@
+gcp_project:
+gke_cluster_name:
+gcp_region:
+gcp_zone:
+dns_hostname:
+gcp_dns_zone:
+git_repo_deploy_key:
+dockerhub_username:
+dockerhub_password:

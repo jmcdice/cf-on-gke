@@ -1,0 +1,31 @@
+jobs:
+- name: deploy-cf-for-k8s
+  plan:
+  - in_parallel:
+      steps:
+      - get: cf-for-k8s-gke-git-repo
+      - get: docker-resource
+  - task: deploy-cf-for-k8s
+    file: cf-for-k8s-git-repo/tas-on-k8s.yml
+    image: docker-resource 
+    params:
+      GCP_PROJECT_NAME: ((gcp_project))
+      K8S_CLUSTER_NAME: ((gke_cluster_name))
+      REGION: ((gcp_region))
+      ZONE: ((gcp_zone))
+      DNS: ((dns_hostname))
+      DNSZONE: ((gcp_dns_zone))
+
+resources:
+- name: cf-for-k8s-gke-git-repo
+  source:
+    branch: master
+    private_key: ((git_repo_deploy_key))
+    uri: git@github.com:jmcdice/cf-on-gke.git
+  type: git
+- name: docker-resource
+  source:
+    password: ((dockerhub_password))
+    repository: jmcdice/cloud-shell
+    username: ((dockerhub_username))
+  type: docker-image

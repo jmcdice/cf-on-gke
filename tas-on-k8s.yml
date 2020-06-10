@@ -1,0 +1,13 @@
+---
+platform: linux
+inputs:
+- name: cf-for-k8s-gke-git-repo
+params:
+  GCP_PROJECT_NAME: 
+  K8S_CLUSTER_NAME: 
+  REGION: 
+  ZONE: 
+  DNS: 
+  DNSZONE: 
+run:
+  path: cf-for-k8s-gke-git-repo/tas-on-k8s.sh
