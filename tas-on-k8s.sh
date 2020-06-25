@@ -12,7 +12,7 @@ DNSZONE='tas4k8s' # Zone in GCP (Cloud DNS)
 
 function config_gcloud() {
 
-  if [ -z ${GCP_SERVICE_KEY} ]; then 
+  if [ ! -z "${GCP_SERVICE_KEY}" ]; then
     echo ${GCP_SERVICE_KEY} > /tmp/creds.json
     gcloud auth activate-service-account --key-file=/tmp/creds.json
     rm -f /tmp/creds.json
