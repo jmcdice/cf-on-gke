@@ -9,5 +9,8 @@ params:
   ZONE: 
   DNS: 
   DNSZONE: 
+  DOCKER_REGISTRY_USER:
+  DOCKER_REGISTRY_PASS:
+  GCP_SERVICE_KEY:
 run:
   path: cf-for-k8s-gke-git-repo/tas-on-k8s.sh

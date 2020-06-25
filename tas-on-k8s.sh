@@ -10,6 +10,15 @@ ZONE='us-central1-c'
 DNS='tas4k8s.domain.cc'
 DNSZONE='tas4k8s' # Zone in GCP (Cloud DNS)
 
+function config_gcloud() {
+
+  if [ -z ${GCP_SERVICE_KEY} ]; then 
+    echo ${GCP_SERVICE_KEY} > /tmp/creds.json
+    gcloud auth activate-service-account --key-file=/tmp/creds.json
+    rm -f /tmp/creds.json
+  fi
+}
+
 function gcp_create_k8s_cluster() {
 
     gcloud beta container --project "${GCP_PROJECT_NAME}" \
@@ -90,6 +99,7 @@ function set_dns() {
   cd hack && bash update-gcp-dns.sh ${DNS} ${DNSZONE}
 }
 
+config_gcloud
 gcp_create_k8s_cluster
 configure_kubectl
 clone_tas4k8s
