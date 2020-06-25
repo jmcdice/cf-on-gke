@@ -54,7 +54,7 @@ function configure_kubectl() {
 
 function clone_tas4k8s() {
 
-  git clone https://github.com/cloudfoundry/cf-for-k8s.git
+  sudo git clone https://github.com/cloudfoundry/cf-for-k8s.git
   cd cf-for-k8s && ./hack/generate-values.sh -d ${DNS} > /tmp/cf-values.yml
 }
 
