@@ -3,12 +3,12 @@
 # Assumes you are using dockerhub for kpack
 # Assumes you have a dns subdomain hosted in Cloud DNS.
 
-GCP_PROJECT_NAME='my-project'
-K8S_CLUSTER_NAME='tas4k8s-00'
-REGION='us-central1'
-ZONE='us-central1-c'
-DNS='tas4k8s.domain.cc'
-DNSZONE='tas4k8s' # Zone in GCP (Cloud DNS)
+# GCP_PROJECT_NAME='my-project'
+# K8S_CLUSTER_NAME='tas4k8s-00'
+# REGION='us-central1'
+# ZONE='us-central1-c'
+# DNS='tas4k8s.domain.cc'
+# DNSZONE='tas4k8s' # Zone in GCP (Cloud DNS)
 
 function config_gcloud() {
 
