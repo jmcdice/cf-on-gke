@@ -60,11 +60,11 @@ function clone_tas4k8s() {
 
 function add_docker_registry() {
 
-  if [ -z "$DOCKER_REGISTRY_USER" ]; then
+  if [ ! -z "$DOCKER_REGISTRY_USER" ]; then
     read -r -p 'Dockerhub Username: ' DOCKER_REGISTRY_USER
   fi
 
-  if [ -z "$DOCKER_REGISTRY_PASS" ]; then
+  if [ ! -z "$DOCKER_REGISTRY_PASS" ]; then
     read -rs -p 'Dockerhub Password: ' DOCKER_REGISTRY_PASS
   fi
 
